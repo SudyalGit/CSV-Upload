@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/home.css">
+</head>
+
+<%- include('_header'); %>
+
+<div class="upload-container">
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <div class="input-container">
+            <input type="file" id="csvFileInput" name="file" accept=".csv">
+            <br>
+            <input type="submit" class="upload-btn" value="submit"/> 
+        </div>
+    </form>
+</div>
+
+<div class="files-container">  
+    <div class="list-center-text">
+        <h2>Files</h2>
+    </div>
+    <div class="files-list">
+        <% if(files.length==0) { %>
+            <div class="no-file">No files to show!</div>
+        <% } else { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>View</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let file of files) { %>
+                        <tr>
+                            <td><%= file.fileName %></td>
+                            <td><%= file.createdAt.toLocaleDateString() %></td>
+                            <td><a href="/view/<%= file.file %>" class="view-link"><i class="fa-solid fa-eye"></i></a></td>
+                            <td><a href="/delete/<%= file.file %>" class="delete-link"><i class="fa-solid fa-trash"></i></a></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        <% } %>
+    </div>
+</div>
+
+</html>

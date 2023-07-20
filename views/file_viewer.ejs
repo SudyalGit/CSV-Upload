@@ -1,0 +1,37 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/file_viewer.css">
+</head>
+
+<%- include('_header'); %>
+
+<!-- Search bar -->
+<div class="search-bar">
+    <form id="searchForm">
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="Search..">
+            <button id="go" class="search-btn" type="button">Go</button>
+        </div>
+    </form>
+</div>
+
+<!-- Search results -->
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <% for (let h of head) { %>
+                    <th><%= h %></th>
+                <% } %>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (let row of data) { %>
+                <tr>
+                    <% for (let key of Object.keys(row)) { %>
+                        <td><%= row[key] %></td>
+                    <% } %>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>
