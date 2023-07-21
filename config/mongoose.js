@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 //connecting to the database
 mongoose.connect(
-    'mongodb+srv://sudyal:rWUg8SM0nMT90W5v@cluster0.fynh2e7.mongodb.net/'
+    'mongodb+srv://placement:1UbhMXi13RXuCwSn@cluster0.p5gbb.mongodb.net/placementcell?retryWrites=true&w=majority'
 );
 
 // acquiring the connection to check if it is succesfull
